@@ -1,11 +1,13 @@
 import hashTable.*;
 import binarySearchTree.*;
+import queue.*;
 import tuple.*;
+
+import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    hashTableTests();
-    BSTTests();
+    queueTests();
   }
 
   private static void hashTableTests() {
@@ -63,5 +65,33 @@ public class Main {
     for (int i = 0; i < arr.length; i++) {
       System.out.println(arr[i]);
     }
+  }
+
+  private static void queueTests() {
+    Queue<String> q = new Queue<String>();
+    q.enqueue("Hello");
+    q.enqueue("Hi");
+    q.enqueue("How are you?");
+    q.enqueue("Great!");
+    System.out.println("Queue size: " + q.getSize());
+    System.out.println("--- Queue ---");
+    q.printQueue();
+    System.out.println();
+    System.out.println("Head: " + q.front().toString());
+    System.out.println("Tail: " + q.rear().toString());
+
+    System.out.println();
+    System.out.println("Dequeuing one item: " + q.dequeue());
+    System.out.println("Queue size: " + q.getSize());
+    System.out.println("--- Queue ---");
+    q.printQueue();
+    System.out.println();
+    System.out.println("Head: " + q.front().toString());
+    System.out.println("Tail: " + q.rear().toString());
+
+    System.out.println();
+    System.out.println("--- ArrayList of items ---");
+    ArrayList<String> arrLst = q.toArrayList();
+    System.out.println(arrLst);
   }
 }

@@ -12,6 +12,12 @@ import tuple.*;
    private final int TABLE_LENGTH = 57;
    private LinkedList<Tuple>[] table;
 
+   public boolean hasNext() {
+     // If the current pointer in the linked list, for iteration,
+     // is not null, return true.
+     return false;
+   }
+
    public HashTable() {
      this.table = new LinkedList[TABLE_LENGTH];
    }
