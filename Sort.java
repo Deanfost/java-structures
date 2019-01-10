@@ -6,22 +6,27 @@ import java.lang.Math.*;
  */
 
 public class Sort {
-  static final int ARR_SIZE = 1000;
+  static final int ARR_SIZE = 100000000;
 
   public static void main(String[] args) {
     int[] arr = new int[ARR_SIZE];
     Random rand = new Random();
 
-    System.out.println("--- Unsorted array ---");
+    // System.out.println("--- Unsorted array ---");
     for (int i = 0; i< ARR_SIZE; i++) {
       // Pick a number between 0 and 50 every time to add to array
       arr[i] = rand.nextInt(ARR_SIZE + 1);
-      System.out.println(arr[i]);
+      // System.out.println(arr[i]);
     }
 
-    System.out.println("--- Sorted array ---");
+    // System.out.println("--- Sorted array ---");
+
+    long millis = System.currentTimeMillis();
     arr = mergeSort(arr);
-    for (int i = 0; i< ARR_SIZE; i++) { System.out.println(arr[i]); }
+    // bubbleSort(arr);
+    long elapsed = System.currentTimeMillis();
+    System.out.println("Execution time: " + ((elapsed - millis) / 1000) + " seconds");
+    // for (int i = 0; i< ARR_SIZE; i++) { System.out.println(arr[i]); }
   }
 
   /* Sort each pair of numbers linearly until list is sorted. */
