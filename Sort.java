@@ -6,12 +6,13 @@ import java.lang.Math.*;
  */
 
 public class Sort {
-  static final int ARR_SIZE = 100000000;
+  static final int ARR_SIZE = 1000;
 
   public static void main(String[] args) {
     int[] arr = new int[ARR_SIZE];
     Random rand = new Random();
 
+    System.out.println("Generating array...");
     // System.out.println("--- Unsorted array ---");
     for (int i = 0; i< ARR_SIZE; i++) {
       // Pick a number between 0 and 50 every time to add to array
@@ -20,11 +21,14 @@ public class Sort {
     }
 
     // System.out.println("--- Sorted array ---");
-
+    System.out.println(ARR_SIZE + " elements generated.");
+    System.out.println("Executing sort...");
     long millis = System.currentTimeMillis();
-    arr = mergeSort(arr);
-    // bubbleSort(arr);
+    // arr = mergeSort(arr);
+    bubbleSort(arr);
     long elapsed = System.currentTimeMillis();
+    System.out.println(" ");
+    System.out.println("--- Operation completed --- ");
     System.out.println("Execution time: " + ((elapsed - millis) / 1000) + " seconds");
     // for (int i = 0; i< ARR_SIZE; i++) { System.out.println(arr[i]); }
   }
@@ -32,10 +36,11 @@ public class Sort {
   /* Sort each pair of numbers linearly until list is sorted. */
   public static void bubbleSort(int[] list) {
     boolean shouldSort;
+    int endIndex = ARR_SIZE;
     // Iterate as many times as we need to
     do {
       shouldSort = false;
-      for (int i = 0; i < ARR_SIZE - 1; i++) {
+      for (int i = 0; i < endIndex - 1; i++) {
         if (list[i] > list[i + 1]) {
           int temp = list[i];
           list[i] = list[i + 1];
@@ -43,6 +48,7 @@ public class Sort {
           shouldSort = true;
         }
       }
+      endIndex--;
     } while (shouldSort);
   }
 
